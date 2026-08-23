@@ -1,0 +1,130 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-elevated: #f1f5f9;
+  --surface-muted: #e2e8f0;
+  --foreground: #0f172a;
+  --muted-foreground: #475569;
+  --border: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --accent: #0284c7;
+  --accent-subtle: #e0f2fe;
+  --success: #059669;
+  --success-subtle: #d1fae5;
+  --warning: #d97706;
+  --warning-subtle: #fef3c7;
+  --error: #e11d48;
+  --error-subtle: #ffe4e6;
+  --graph-bg: #f8fafc;
+  --graph-grid: #cbd5e1;
+  --graph-node-bg: #ffffff;
+  --graph-node-border: #cbd5e1;
+  --graph-edge: rgba(100, 116, 139, 0.25);
+}
+
+.dark {
+  --background: #07090e;
+  --surface: #0e1219;
+  --surface-elevated: #131822;
+  --surface-muted: #1e293b;
+  --foreground: #f8fafc;
+  --muted-foreground: #94a3b8;
+  --border: #1e293b;
+  --border-subtle: #334155;
+  --accent: #06b6d4;
+  --accent-subtle: rgba(6, 182, 212, 0.12);
+  --success: #10b981;
+  --success-subtle: rgba(16, 185, 129, 0.12);
+  --warning: #f59e0b;
+  --warning-subtle: rgba(245, 158, 11, 0.12);
+  --error: #f43f5e;
+  --error-subtle: rgba(244, 63, 94, 0.12);
+  --graph-bg: #06080d;
+  --graph-grid: #1e293b;
+  --graph-node-bg: #0d1117;
+  --graph-node-border: #1e293b;
+  --graph-edge: rgba(148, 163, 184, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Accessible focus visible rings (Section 73.23) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference (Section 73.24) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Technical badge & numbers */
+.font-mono-numeric {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
